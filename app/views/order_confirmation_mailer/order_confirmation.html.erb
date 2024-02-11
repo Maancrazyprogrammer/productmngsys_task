@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Order Confirmation</h1>
+  <p>Dear <%= @user.email %>,</p>
+
+  <p>Your order has been confirmed. Thank you for shopping with us!</p>
+
+  <h2>Order Details:</h2>
+  <ul>
+   <% @cart.each do |cart_item| %>
+  <p><%= cart_item.product.p_Name %> - Quantity: <%= cart_item.quantities %> - Subtotal: <%= number_to_currency(cart_item.quantities * cart_item.product.p_price.to_i) %></p>
+<% end %>
+
+  </ul>
+
+  <p><strong>Total Bill: <%= number_to_currency(@total_bill) %></strong></p>
+
+  <p>Thank you for choosing our service. If you have any questions, please contact us.</p>
+
+  <p>Best regards,<br>
+     MNS - Muhammad Nouman Sarwar</p>
+</body>
+</html>

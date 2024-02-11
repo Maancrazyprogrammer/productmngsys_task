@@ -1,0 +1,25 @@
+<h1>Add to cart</h1>
+
+<h2>Name</h2>
+<h3><%= @product.p_Name %></h3>
+<h2>Price</h2>
+<h3><%= @product.p_price %></h3>
+
+
+<h1>Add New Product</h1>
+
+<%= form_with(model: [@user, @user.carts.build(product: @product)], url: carts_path, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :quantities %>
+    <%= form.number_field :quantities, min: 1, value: 1 %>
+  </div>
+  <%= form.hidden_field :product_id, value: @product.id %>
+  <%= form.hidden_field :user_id, value: @user.id %>
+
+
+  <%= form.submit "Add to Cart", class: "btn btn-primary" %>
+ 
+
+<% end %>
+
+<%= link_to 'back', products_path %>

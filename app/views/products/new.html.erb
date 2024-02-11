@@ -1,0 +1,35 @@
+<h1>Add New Product</h1>
+
+<%= form_with model: @product do |form| %>
+  <div>
+    <%= form.label :'Product Name' %><br>
+    <%= form.text_field :p_Name %>
+    
+     
+   
+  </div>
+    <div>
+    <%= form.label :'Price' %><br>
+    <%= form.text_field :p_price %>
+    
+     
+   
+  </div>
+    <div>
+    <%= form.label :'Product Photo' %><br>
+     <%= form.file_field :p_photo, :class => 'fileupload' %>
+    
+     
+   
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to "back product", products_path =%>
+
+
